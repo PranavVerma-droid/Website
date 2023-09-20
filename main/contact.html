@@ -1,0 +1,160 @@
+<html>
+
+<head>
+    <title>InfinityX</title>
+    <link rel="icon" href="Images/InfinityX.png" type="image/x-icon">
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-database-compat.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="https://kit.fontawesome.com/1531c53c11.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="CSS-JS/Contact/index-enc.css">
+    <script type="text/javascript" src="CSS-JS/Contact/index-enc.js"></script>
+    <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="pranavverma" data-description="Support me on Buy me a coffee!" data-message="" data-color="#FF813F" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+</head>
+
+
+<body>
+    <script>
+        document.addEventListener("contextmenu", (event) => {
+            event.preventDefault();
+        });
+    </script>
+    <div class="container">
+        <h1 class="title drop-in">Contact Form</h1>
+
+        <center><a class="drop-in-2" href="index.html" style="font-family: 'JetBrains Mono', monospace; font-size: 1vw;"><u>Go Back
+                    Home</u></a></center>
+        <div class="wrapper animated bounceInLeft drop-in">
+            <div class="contact">
+                <!--<h3 class="contact-us">Contact Us</h3>-->
+                <div class="alert">Your message has been sent! Please Check your Email!</div>
+                <form id="contactForm">
+                    <p class="name-field">
+                        <label>Name <span>*</span></label>
+                        <input type="text" name="name" id="name" required>
+                    </p>
+                    <p class="company-field">
+                        <label>Company</label>
+                        <input type="text" name="company" id="company">
+                    </p>
+                    <p class="email-field">
+                        <label>Email <span>*</span></label>
+                        <input type="email" name="email" id="email" required>
+                    </p>
+                    <p class="phone-field">
+                        <label>Phone</label>
+                        <input type="text" name="phone" id="phone">
+                    </p>
+                    <p class="message-field full">
+                        <label>Message</label>
+                        <textarea name="message" rows="7" id="message"></textarea>
+                    </p>
+                    <p class="required-field">Required field <span>*</span></p>
+                    <p class="submit-button">
+                        <button type="submit">Submit</button>
+                    </p>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+    <br><br>
+    
+
+    <div class="tempborder clearfix" style="background-color: rgba(216, 216, 216, 0.952);">
+
+        <img src="https://static.wixstatic.com/media/22e55c_0c02c2133bfb427b87605cfe79c35439~mv2.png/v1/fill/w_600,h_401,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/coding.png"
+            style="width: 30vw; float: right;">
+        <br>
+        <p class="jetmono center" style="font-size: 2.6vw; color: black;">Other Ways to Contact</p>
+        <center><a href="mailto: pranav@verma.net.in" class="jetmono blacklink" style="font-size: 2vw;"><i
+                    class="fa-solid fa-envelope"></i> </a>
+            <a href="https://github.com/PranavVerma-droid" class="jetmono blacklink" style="font-size: 2vw;"><i
+                    class="fa-brands fa-github"></i> </a>
+            <a href="https://discord.gg/AuunudfcJr" class="jetmono blacklink" style="font-size: 2vw;"><i
+                    class="fa-brands fa-discord"></i> </a>
+            <a href="https://twitter.com/InfinityX_Web" class="jetmono blacklink" style="font-size: 2vw;"><i
+                    class="fa-brands fa-twitter"></i> </a>
+            <a href="https://www.instagram.com/pranavv.404/" class="jetmono blacklink" style="font-size: 2.2vw;"><i
+                    class="fa-brands fa-instagram"></i>  </a>
+            <a href="https://linktr.ee/envitixy" class="jetmono blacklink" style="font-size: 2.2vw;"><i 
+                    class="fa-solid fa-link"></i></a>
+            <a href="https://www.threads.net/@pranavv.404" class="jetmono blacklink" style="font-size: 2.2vw;"><i
+                    class="fa-brands fa-threads"></i>
+            <a href="https://hf.co/PranavVerma-droid" class="jetmono blacklink" style="font-size: 2.2vw;"><i 
+                    class="fa-solid fa-face-laugh"></i>
+            <a href="https://craftingrealm.tebex.io" class="jetmono blacklink" style="font-size: 2.2vw;"><i 
+                    class="fa-solid fa-store"></i>        
+        </center>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore-compat.js"></script>
+  <script>
+    const firebaseConfig = {
+  apiKey: "AIzaSyCA_BPpKq3IhLupHnGYbbwq0U1mLdMbJXY",
+  authDomain: "contactusform-f0ec2.firebaseapp.com",
+  databaseURL: "https://contactusform-f0ec2-default-rtdb.firebaseio.com",
+  projectId: "contactusform-f0ec2",
+  storageBucket: "contactusform-f0ec2.appspot.com",
+  messagingSenderId: "641931730164",
+  appId: "1:641931730164:web:0812ee1bf4659f8381d2a1",
+  measurementId: "G-1RVB7HZQWB"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+const db = firebase.firestore();
+
+    const app = Vue.createApp({
+      data() {
+        return {
+          user: null,
+          email: "",
+          password: ""
+        };
+      },
+      mounted() {
+        firebase.auth().onAuthStateChanged(user => {
+          this.user = user;
+        });
+      },
+      methods: {
+        login() {
+          firebase.auth().signInWithEmailAndPassword(this.email, this.password)
+            .then(userCredential => {
+              this.user = userCredential.user;
+              this.email = "";
+              this.password = "";
+            })
+            .catch(error => {
+              console.error(error);
+              alert("Login failed. Please check your credentials.");
+            });
+        },
+        signOut() {
+          firebase.auth().signOut()
+            .then(() => {
+              this.user = null;
+            })
+            .catch(error => {
+              console.error(error);
+              alert("Sign out failed.");
+            });
+        }
+      }
+    });
+
+    app.mount('#app');
+  </script>
+</body>
+
+
+
+</html>

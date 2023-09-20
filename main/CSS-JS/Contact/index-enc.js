@@ -1,4 +1,3 @@
-// Initialize Firebase
 var config = {
   apiKey: "AIzaSyCA_BPpKq3IhLupHnGYbbwq0U1mLdMbJXY",
   authDomain: "contactusform-f0ec2.firebaseapp.com",
@@ -13,7 +12,7 @@ var config = {
 firebase.initializeApp(config);
 
 // Reference messages collection
-var messagesRef = firebase.database().ref('ContactFormMessages');
+var messagesRef = firebase.database().ref('forms');
 
 // Listen for form submit
 $(document).ready(function() {

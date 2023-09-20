@@ -1,0 +1,43 @@
+.bg-blue-gradient {
+    background: linear-gradient(180deg, #1d4ed8 0%, #6d28d9 100%);
+}
+
+.navbar-item {
+    color: white;
+    }
+    
+    
+    @media (max-width: 800px) {
+    
+    .rotate-icon {
+        transition: transform 0.3s ease; /* Apply a transition to the transform property */
+      }
+    
+      .rotate-icon.active {
+        transform: rotate(90deg); /* Rotate the icon when active */
+      }
+    
+      .navbar {
+        display: block;
+        align-items: left;
+        
+        }
+        
+        .navbar-item {
+        border: 2px solid black;
+        border-radius: 10px;
+        background-color: white;
+        width: 100px; /* or any other value you prefer */
+        display: block; /* add this to make the items display inline */
+        text-align: center;
+        color: black;
+        margin: 2px;
+        }
+        
+        .temp {
+        
+          transform: translateX(3vw);
+          
+          
+          }
+    }

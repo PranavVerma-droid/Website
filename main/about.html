@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InfinityX</title>
+  <link rel="icon" href="Images/InfinityX.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.15/tailwind.min.css">
+  <link rel="stylesheet" href="CSS-JS/About/style.css">
+  <script src="https://kit.fontawesome.com/1531c53c11.js" crossorigin="anonymous"></script>
+  <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="pranavverma" data-description="Support me on Buy me a coffee!" data-message="" data-color="#FF813F" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+</head>
+
+<body class="bg-blue-gradient" id="app">
+  <nav class="py-6 px-8 flex justify-between items-center">
+    <a href="index.html" class="text-white text-2xl font-bold">InfinityX</a>
+
+    <div class="fixed shadow top-7 right-6">
+      <div v-if="isMobile">
+        <svg @click="toggleMenu" xmlns="http://www.w3.org/2000/svg" class="text-white cursor-pointer icon icon-tabler icon-tabler-menu-2 rotate-icon"
+          :class="{ active: menuOpen }" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+          fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path d="M4 6l16 0"></path>
+          <path d="M4 12l16 0"></path>
+          <path d="M4 18l16 0"></path>
+        </svg>
+      </div>
+    </div>
+
+
+    <div class="fixed top-14 right-6 inline-block items-center space-x-4 md:block bg-white rounded-lg shadow-lg" v-if="menuOpen && isMobile">
+      <ul class="md:block space-x-4 md:space-x-6 navbar md:items-center" style="padding-right: 3vw; padding-top: 3vw; padding-bottom: 3vw;">
+        <li><a href="index.html" class="text-white navbar-item temp">Home</a></li>
+        <li><a href="about.html" class="text-white navbar-item">About</a></li>
+        <li><a href="projects.html" class="text-white navbar-item">Projects</a></li>
+        <li><a href="blogs.html" class="text-white navbar-item">Blogs</a></li>
+        <li><a href="https://portfolio.craftingrealm.tk/" class="text-white navbar-item">Portfolio</a></li>
+        <li><a href="mcserver.html" class="text-white navbar-item">Server</a></li>
+        <li><a href="contact.html" class="text-white navbar-item">Contact</a></li>
+        <li>
+          <div>
+            <div class="relative" @click="toggleDropdown">
+              <span class="navbar-item cursor-pointer">{{ signInText }}</span>
+              <div v-if="showDropdown" class="absolute top-12 bg-white rounded-lg shadow-lg p-4" style="transform: translateX(-113px);">
+                <div v-if="!user" class="p-4">
+                  <form @submit.prevent="login" class="flex flex-col items-center">
+                    <input type="email" v-model="email" class="border p-2 mb-2" placeholder="Email" required
+                      @click.stop>
+                    <input type="password" v-model="password" class="border p-2 mb-2" placeholder="Password" required
+                      @click.stop>
+                    <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded" @click.stop>Login</button>
+                  </form>
+                </div>
+                <div v-if="user" class="p-4">
+                  <center>
+                    <p class="text-black">Logged in as: <strong>{{ user.email }}</strong></p>
+                    <button @click="signOut" class="bg-red-500 text-white px-4 py-2 mt-4 rounded" @click.stop>Sign
+                      Out</button>
+                  </center>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+
+
+
+    <div class="flex items-center space-x-4 md:block" v-if="!isMobile">
+      <ul class="md:flex space-x-4 md:space-x-6 navbar md:items-center">
+        <li><a href="index.html" class="text-white navbar-item">Home</a></li>
+        <li><a href="about.html" class="text-white navbar-item">About</a></li>
+        <li><a href="projects.html" class="text-white navbar-item">Projects</a></li>
+        <li><a href="blogs.html" class="text-white navbar-item">Blogs</a></li>
+        <li><a href="https://portfolio.craftingrealm.tk/" class="text-white navbar-item">Portfolio</a></li>
+        <li><a href="mcserver.html" class="text-white navbar-item">Server</a></li>
+        <li><a href="contact.html" class="text-white navbar-item">Contact</a></li>
+        <li>
+          <div>
+            <div class="relative" @click="toggleDropdown">
+              <span class="navbar-item cursor-pointer">{{ signInText }}</span>
+              <div v-if="showDropdown" class="absolute top-10 right-0 bg-white rounded-lg shadow-lg p-4">
+                <div v-if="!user" class="p-4">
+                  <form @submit.prevent="login" class="flex flex-col items-center">
+                    <input type="email" v-model="email" class="border p-2 mb-2" placeholder="Email" required
+                      @click.stop>
+                    <input type="password" v-model="password" class="border p-2 mb-2" placeholder="Password" required
+                      @click.stop>
+                    <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded" @click.stop>Login</button>
+                  </form>
+                </div>
+                <div v-if="user" class="p-4">
+                  <center>
+                    <p class="text-black">Logged in as: <strong>{{ user.email }}</strong></p>
+                    <button @click="signOut" class="bg-red-500 text-white px-4 py-2 mt-4 rounded" @click.stop>Sign
+                      Out</button>
+                  </center>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+  </nav>
+
+  <div v-if="user" class="py-16 px-8 max-w-4xl mx-auto">
+    <form @submit.prevent="submitProject" class="border-solid border-2 p-2">
+      <h1>Create Project:</h1>
+      <input type="text" v-model="projectName" class="border p-2 mb-2l rounded" placeholder="Project Title" required><br>
+      <textarea cols="22" v-model="projectDescription" class="border p-2 mb-2 mt-3 rounded" placeholder="Project Content" required></textarea><br>
+      <input type="text" v-model="projectImg" class="border p-2 mb-2 rounded" placeholder="Project Image URL" required><br>
+      <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-full">Submit</button>
+    </form>
+  </div>
+
+  <main class="py-16 px-8">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-bold text-white mb-8">About</h2>
+
+      <div class="mb-8">
+        <h3 class="text-2xl font-bold text-white mb-4">Who I Am</h3>
+        <p class="text-white leading-loose">
+          Hi, I'm Pranav Verma! I'm a passionate and enthusiastic student with a keen interest in coding. I love exploring
+          new technologies, building projects, and solving challenging problems. Coding has become my creative outlet,
+          and I'm constantly seeking opportunities to expand my knowledge and skills in the world of programming.
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-2xl font-bold text-white mb-4">My Journey</h3>
+        <p class="text-white leading-loose">
+          My coding journey began a few years ago when I was introduced to programming in school. Since then, I've been
+          captivated by the endless possibilities that coding offers. I've explored various programming languages,
+          frameworks, and tools, and I'm always eager to learn more. I believe in the power of coding to create
+          innovative solutions and make a positive impact in the world.
+        </p>
+      </div>
+
+
+      <div class="text-white">
+        <p>Btw, I am a Avid Supporter of Titanfall 3, it would really help if you could Re-Post this Tweet:</p>
+        <blockquote class="twitter-tweet"><p lang="en" dir="ltr"><a href="https://twitter.com/Titanfallgame?ref_src=twsrc%5Etfw">@Titanfallgame</a> <br>Hey, What is the status of Titanfall 3? We all would love to get it, are you guys planning on releasing it in the future?<a href="https://twitter.com/hashtag/Titanfall3?src=hash&amp;ref_src=twsrc%5Etfw">#Titanfall3</a> <a href="https://t.co/MzRlxjif23">pic.twitter.com/MzRlxjif23</a></p>&mdash; Pranav Verma (@PranavVerm65898) <a href="https://twitter.com/PranavVerm65898/status/1646228279081291776?ref_src=twsrc%5Etfw">April 12, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </div><br><br>
+
+      <div class="mb-8">
+        <h3 class="text-2xl font-bold text-white mb-4">My Skills</h3>
+        <ul class="text-white">
+          <li v-for="skill in skillz" :key="skill.id"><span class="font-bold"><i :class="skill.skillzClass"></i></span> {{skill.skillzName}}</li>
+        </ul>
+      </div>
+
+      <section class="mb-8">
+        <h2 class="text-3xl font-bold text-white mb-4">My Tools</h2>
+
+        <div class="flex items-center pb-3" v-for="project in projects" :key="project.id">
+          <div class="w-16 h-16 bg-gray-900 flex-shrink-0 rounded-full flex items-center justify-center">
+            <img :src="project.projectImg" alt="Tool Icon" class="w-10 h-10 rounded-full">
+          </div>
+          <div class="ml-4">
+            <h3 class="text-2xl font-bold text-white mb-2">{{ project.projectName }}</h3>
+            <p class="text-white leading-loose" v-html="project.projectDescription" />
+          </div>
+        </div>
+
+      </section>
+      
+      
+      
+    
+
+      <div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="py-6 px-8 bg-blue-900 text-white text-center">
+    &copy; 2023 InfinityX. All rights reserved.
+  </footer>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore-compat.js"></script>
+  <script>
+    const firebaseConfig = {
+  apiKey: "AIzaSyCA_BPpKq3IhLupHnGYbbwq0U1mLdMbJXY",
+  authDomain: "contactusform-f0ec2.firebaseapp.com",
+  databaseURL: "https://contactusform-f0ec2-default-rtdb.firebaseio.com",
+  projectId: "contactusform-f0ec2",
+  storageBucket: "contactusform-f0ec2.appspot.com",
+  messagingSenderId: "641931730164",
+  appId: "1:641931730164:web:0812ee1bf4659f8381d2a1",
+  measurementId: "G-1RVB7HZQWB"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+const db = firebase.firestore();
+
+    const app = Vue.createApp({
+      data() {
+        return {
+          user: null,
+          email: "",
+          password: "",
+          projectName: "",
+          projectDescription: "",
+          projectImg: "",
+          projects: [],
+          skillzName: "",
+          skillzClass: "",
+          skillz: [],
+          showDropdown: false,
+          menuOpen: false,
+          isMobile: false
+        };
+      },
+      mounted() {
+        this.loadProjects();
+        this.loadSkillz();
+        firebase.auth().onAuthStateChanged(user => {
+          this.user = user;
+        });
+        this.updateScreenSize();
+        window.addEventListener('resize', this.updateScreenSize);
+      },
+      beforeUnmount() {
+        window.removeEventListener('resize', this.updateScreenSize);
+      },
+      methods: {
+        toggleDropdown() {
+          this.showDropdown = !this.showDropdown;
+        },
+        submitProject() {
+
+db.collection("about").add({
+  projectName: this.projectName,
+  projectDescription: this.projectDescription,
+  projectImg: this.projectImg,
+  author: this.user ? this.user.email : "Anonymous",
+  publication_date: new Date().toISOString(),
+})
+.then(() => {
+  this.projectName = "";
+  this.projectDescription = "";
+  this.projectImg = "";
+  alert("Project submitted successfully!");
+})
+.catch(error => {
+  console.error(error);
+  alert("Project to submit blog.");
+});
+
+},
+        loadProjects() {
+          db.collection("about").get()
+            .then(querySnapshot => {
+              const projects = [];
+              querySnapshot.forEach(doc => {
+                const project = doc.data();
+                project.id = doc.id;
+                projects.push(project);
+              });
+              this.projects = projects;
+            })
+            .catch(error => {
+              console.error(error);
+              alert("Failed to load projects.");
+            });         
+          },
+
+            loadSkillz() {
+                    db.collection("skillz").get()
+                      .then(querySnapshot => {
+                        const skillz = [];
+                        querySnapshot.forEach(doc => {
+                          const skill = doc.data();
+                          skill.id = doc.id;
+                          skillz.push(skill);
+                        });
+                        this.skillz = skillz;
+                      })
+                      .catch(error => {
+                        console.error(error);
+                        alert("Failed to load skills.");
+                      });         
+            },
+        updateScreenSize() {
+          // Get the current window width
+          const windowWidth = window.innerWidth;
+          // Update the 'screenSize' data property based on the window width
+          if (windowWidth <= 800) {
+            this.isMobile = true;
+          } else {
+            this.isMobile = false;
+          }
+        },
+        closeDropdown() {
+          this.showDropdown = false;
+        },
+        
+        login() {
+          firebase.auth().signInWithEmailAndPassword(this.email, this.password)
+            .then(userCredential => {
+              this.user = userCredential.user;
+              this.email = "";
+              this.password = "";
+            })
+            .catch(error => {
+              console.error(error);
+              alert("Login failed. Please check your credentials.");
+            });
+        },
+        signOut() {
+          firebase.auth().signOut()
+            .then(() => {
+              this.user = null;
+            })
+            .catch(error => {
+              console.error(error);
+              alert("Sign out failed.");
+            });
+        },
+        toggleMenu() {
+          this.menuOpen = !this.menuOpen;
+        }
+      },
+      computed: {
+  signInText() {
+    if (this.user) {
+      if (window.innerWidth <= 800) {
+        return 'Account';
+      } else {
+        return this.user.email;
+      }
+    } else {
+      return 'Sign In';
+    }
+  }
+}
+    });
+
+    app.mount('#app');
+  </script>
+</body>
+
+</html>

@@ -73,13 +73,20 @@ window.onload = function() {
       join_input.onkeyup  = function(){
         // If the input we have is longer that 0 letters
         if(join_input.value.length > 0){
+
           // Make the button light up
           join_button.classList.add('enabled')
           // Allow the user to click the button
           join_button.onclick = function(){
+
             // Save the name to local storage. Passing in
             // the join_input.value
             parent.save_name(join_input.value)
+
+            if(join_input.value.includes == "Pranav"){
+              alert('You cant keep your name as the Owner!');
+              location.reload();
+            }
             // Remove the join_container. So the site doesn't look weird.
             join_container.remove()
             // parent = this. But it is not the join_button

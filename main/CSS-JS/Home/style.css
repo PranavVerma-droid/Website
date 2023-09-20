@@ -1,0 +1,118 @@
+:root {
+    --purple: rgb(123, 31, 162);
+    --violet: rgb(103, 58, 183);
+    --pink: rgb(244, 143, 177);
+}
+.bg-blue-gradient {
+background: linear-gradient(180deg, #1d4ed8 0%, #6d28d9 100%);
+}
+
+.image-container {
+max-width: 500px;
+margin: 0 auto;
+}
+
+.magic {
+animation: background-pan 3s linear infinite;
+background: linear-gradient(to right,
+        var(--purple),
+        var(--violet),
+        var(--pink),
+        var(--purple));
+background-size: 200%;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+white-space: nowrap;
+}
+
+.image-container img {
+display: block;
+width: 100%;
+max-width: 100%;
+height: auto;
+border-radius: 8px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1),
+    0 8px 16px rgba(0, 0, 0, 0.1),
+    0 16px 24px rgba(0, 0, 0, 0.1);
+}
+
+.drop-in {
+animation: drop-in 1s ease 200ms backwards;
+}
+
+.drop-in-2 {
+animation: drop-in 1200ms ease 500ms backwards;
+}
+
+@keyframes drop-in {
+from {
+opacity: 0;
+transform: translateY(-100px);
+}
+
+to {
+opacity: 1;
+transform: translate(0px);
+}
+}
+
+.mobileblock {
+display: block;
+}
+
+.reverse {
+display: none;
+}
+
+.navbar-item {
+color: white;
+}
+
+
+@media (max-width: 800px) {
+.mobileblock {
+display: none;
+}
+
+.reverse {
+display: inline-block;
+}
+
+.navbar {
+display: block;
+align-items: left;
+
+}
+
+.navbar-item {
+border: 2px solid black;
+border-radius: 10px;
+background-color: white;
+width: 100px; /* or any other value you prefer */
+display: block; /* add this to make the items display inline */
+text-align: center;
+color: black;
+margin: 2px;
+}
+
+.temp {
+
+  transform: translateX(3vw);
+  
+  
+  }
+
+.rotate-icon {
+    transition: transform 0.3s ease; /* Apply a transition to the transform property */
+  }
+
+  .rotate-icon.active {
+    transform: rotate(90deg); /* Rotate the icon when active */
+  }
+
+
+
+.md\:block {
+    display: block !important;
+  }
+}
