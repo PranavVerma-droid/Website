@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css?family=Mukta+Mahee:200,400');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
+
+body { background: rgb(31, 31, 31); }
+* { box-sizing: border-box; }
+
+.container {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1em;
+}
+
+.drop-in {
+  animation: drop-in 1s ease 200ms backwards;
+}
+
+.drop-in-2 {
+  animation: drop-in 1200ms ease 500ms backwards;
+}
+
+@keyframes drop-in {
+  from {
+      opacity: 0;
+      transform: translateY(-100px);
+  }
+
+  to {
+      opacity: 1;
+      transform: translate(0px);
+  }
+}
+
+
+a:link {
+  color: white;
+  text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+/* mouse over link */
+a:hover {
+  color: rgb(99, 99, 99);
+  text-decoration: none;
+}
+
+/* selected link */
+a:active {
+  color: white;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.title {
+  margin-bottom: 30px;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 400;
+  font-size: 2vw;
+  color: white;
+  text-align: center;
+}
+
+.wrapper {
+  background: rgb(65, 65, 65);
+  border-radius: 5px;
+  box-shadow: 0 0 20px 0 rgba(0,0,0, .1);
+  padding: 27.5px;
+}
+
+#contactForm {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-areas:
+    'name'
+    'email'
+    'company'
+    'phone'
+    'message';
+}
+
+.required-field {
+  grid-column: 1 / 2;
+}
+
+.submit-button {
+  grid-column: 2 / 3;
+}
+
+.name-field {
+  grid-area: name;
+  grid-column: 1 / 3;
+}
+
+.email-field {
+  grid-area: email;
+  grid-column: 1 / 3;
+}
+
+.company-field {
+  grid-area: company;
+  grid-column: 1 / 3;
+}
+
+.phone-field {
+  grid-area: phone;
+  grid-column: 1 / 3;
+}
+
+.message-field {
+  grid-area: message;
+  grid-column: 1 / 3;
+}
+
+/* FORM STYLES */
+
+.contact-us {
+  margin: 0 0 30px;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 400;
+  font-size: 14px;
+  color: yellow;
+}
+
+.contact form {
+  border: 0;
+}
+
+.contact form label {
+  display: block;
+}
+
+.contact form p {
+  margin: 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 200;
+  font-size: 12px;
+  color: whitesmoke;
+}
+
+.contact form input, .contact form textarea {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 200;
+  font-size: 14px;
+  width: 100%;
+  padding: .4em .8em;
+  background: rgba(249, 250, 250, .5);
+  border: 1px solid rgba(74, 86, 96, .1);
+  border-radius: 2.5px;
+  outline-color: rgb(31, 31, 31);
+  color: yellow;
+}
+
+.contact form button {
+    font-family: 'JetBrains Mono', monospace;
+  font-weight: 400;
+  font-size: 12px;
+  color: #fff;
+  background: black;
+  width: 90px;
+  height: 30px;
+  border: 0;
+  border-radius: 15px;
+}
+
+.submit-button {
+  align-self: center;
+  justify-self: end;
+}
+
+.contact form button:hover, .contact form button:focus {
+  background: gray;
+  color: #fff;
+  outline: 0;
+  transition: background-color 0.3s ease-out;
+}
+
+.required-field {
+    font-family: 'JetBrains Mono', monospace;
+  font-weight: 200;
+  font-size: 10px;
+  color: rgba(74, 86, 96, 0.75);
+  align-self: center;
+  justify-self: start;
+}
+
+span {
+  color: yellow;
+}
+
+.alert {
+  margin-bottom: 1em;
+  padding: 10px;
+  background: gray;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  text-align: center;
+  color: #fff;
+  border-radius: 2.5px;
+  display: none;
+}
+
+/* LARGE SCREENS */
+
+@media (min-width: 500px) {
+  #contactForm {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      'name company'
+      'email phone'
+      'message message';
+  }
+
+  .name-field {
+    grid-area: name;
+    grid-column: 1 / 2;
+  }
+
+  .email-field {
+    grid-area: email;
+    grid-column: 1 / 2;
+  }
+
+  .company-field {
+    grid-area: company;
+    grid-column: 2 / 3;
+  }
+
+  .phone-field {
+    grid-area: phone;
+    grid-column: 2 / 3;
+  }
+
+  .message-field {
+    grid-area: message;
+    grid-column: 1 / 3;
+  }
+}

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>
+    <title>CraftingRealm SMP</title>
+    <link rel="icon" href="InfinityX.png" type="image/x-icon">
+    <style>
+        :root {
+            --purple: rgb(123, 31, 162);
+            --violet: rgb(103, 58, 183);
+            --pink: rgb(244, 143, 177);
+        }
+
+        .drop-in {
+            animation: drop-in 1s ease 200ms backwards;
+        }
+
+        .drop-in-2 {
+            animation: drop-in 1200ms ease 500ms backwards;
+        }
+
+        @keyframes drop-in {
+            from {
+                opacity: 0;
+                transform: translateY(-100px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translate(0px);
+            }
+        }
+
+        @keyframes background-pan {
+            from {
+                background-position: 0% center;
+            }
+
+            to {
+                background-position: -200% center;
+            }
+
+        }
+
+        .button {
+            background-color: #4CAF50;
+            /* Green */
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+
+        .button1 {
+            background-color: white;
+            color: black;
+            border: 2px solid #4CAF50;
+        }
+
+        .button1:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+
+
+        .container {
+            position: relative;
+            text-align: center;
+            color: white;
+        }
+
+        .bottom-left {
+            position: absolute;
+            bottom: 8px;
+            left: 16px;
+        }
+
+        .jetmono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .top-left {
+            position: absolute;
+            top: 8px;
+            left: 16px;
+        }
+
+        .top-right {
+            position: absolute;
+            top: 8px;
+            right: 16px;
+        }
+
+        .bottom-right {
+            position: absolute;
+            bottom: 8px;
+            right: 16px;
+        }
+
+        .centered {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /*.tempborder {
+        border: red 2px solid;
+        padding: 6px;
+        }*/
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        a:link {
+            color: black;
+            text-decoration: none;
+        }
+
+        /* visited link */
+        a:visited {
+            color: black;
+            text-decoration: none;
+        }
+
+        /* mouse over link */
+        a:hover {
+            color: rgb(99, 99, 99);
+            text-decoration: none;
+        }
+
+        /* selected link */
+        a:active {
+            color: black;
+            text-decoration: none;
+        }
+
+        p>.magic {
+            animation: background-pan 3s linear infinite;
+            background: linear-gradient(to right,
+                    var(--purple),
+                    var(--violet),
+                    var(--pink),
+                    var(--purple));
+            background-size: 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            white-space: nowrap;
+        }
+
+        h1>.magic {
+            animation: background-pan 3s linear infinite;
+            background: linear-gradient(to right,
+                    var(--purple),
+                    var(--violet),
+                    var(--pink),
+                    var(--purple));
+            background-size: 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            white-space: nowrap;
+        }
+
+        /* CSS */
+        .button-6 {
+            align-items: center;
+            background-color: #FFFFFF;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: .25rem;
+            box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+            box-sizing: border-box;
+            color: rgba(0, 0, 0, 0.85);
+            cursor: pointer;
+            display: inline-flex;
+            font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            justify-content: center;
+            line-height: 1.25;
+            margin: 0;
+            min-height: 3rem;
+            padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+            position: relative;
+            text-decoration: none;
+            transition: all 250ms;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            vertical-align: baseline;
+            width: auto;
+        }
+
+        .button-6:hover,
+        .button-6:focus {
+            border-color: rgba(0, 0, 0, 0.15);
+            box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+            color: rgba(0, 0, 0, 0.65);
+        }
+
+        .button-6:hover {
+            transform: translateY(-1px);
+        }
+
+        .button-6:active {
+            background-color: #F0F0F1;
+            border-color: rgba(0, 0, 0, 0.15);
+            box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+            color: rgba(0, 0, 0, 0.65);
+            transform: translateY(0);
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@1,400;1,700&display=swap');
+    </style>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Poppins:wght@200&display=swap"
+        rel="stylesheet">
+    <center>
+        <h1 style="font-family: 'Poppins', sans-serif; font-size: 2vw;" class="drop-in-2">CraftingRealm</h1>
+    </center>
+    <hr>
+    <script src="https://kit.fontawesome.com/1531c53c11.js" crossorigin="anonymous"></script>
+</head>
+
+
+<body>
+    <script>
+        document.addEventListener("contextmenu", (event) => {
+            event.preventDefault();
+        });
+    </script>
+
+    <center><b><u><a style="font-family: 'Poppins', sans-serif; text-decoration: none; font-size: 1.3vw;"
+                    href="index.html">Home</u>&nbsp&nbsp</a>
+            <u><a style="font-family: 'Poppins', sans-serif; text-decoration: none; font-size: 1.3vw;"
+                    href="WebsiteChat.html">Live Chat</u>&nbsp&nbsp</a>
+            <u><a style="font-family: 'Poppins', sans-serif; text-decoration: none; font-size: 1.3vw;"
+                    href="aboutMe.html">About Me</u>&nbsp&nbsp</a>
+            <u><a style="font-family: 'Poppins', sans-serif; text-decoration: none; font-size: 1.3vw;"
+                    href="CraftingRealm.html">Minecraft Server</u>&nbsp&nbsp</a>
+            <u><a style="font-family: 'Poppins', sans-serif; text-decoration: none; font-size: 1.3vw;"
+                    href="ContactForm.html">Contact Form</u></a></b>
+        <hr>
+        <br><br><br>
+        <img src="https://static.wixstatic.com/media/11062b_13a64700398c42cdbc929c39b197ad35~mv2.jpg/v1/fill/w_1175,h_550,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Minecraft%20World.jpg"
+            alt="Main.png" width="50%" class="drop-in">
+        <br>
+        <h1 style="font-family: 'Open Sans', sans-serif; font-size: 10vw;" class="drop-in"><span class="magic">CraftingRealm SMP</span>
+        </h1>
+        <h1 style="font-family: 'Raleway', sans-serif; font-size: 2.3vw;">Game Elements</h1>
+        <b>
+            <p style="font-family: 'Poppins', sans-serif; font-size: 1vw;">A Bungeecord Networking Server for Survival,
+                Creative, & SkyBlock!</p>
+        </b>
+        <p style="font-family: 'Poppins', sans-serif; font-size: 1vw;"><b>Hi there! You have landed onto the website of
+                CraftingRealm SMP! This SMP Has Loads of fun things to do and make new friends!!</b></p>
+        <button class="button-6"><a style="text-decoration: none; font-family: 'Poppins', sans-serif;"
+                href="https://discord.gg/RjtZekTcQm">Learn More</a></button>
+        <br><br><br>
+
+        <div class="container">
+            <img src="https://static.wixstatic.com/media/11062b_8f6239f8828c4a7e93d3d644bc62b477~mv2.jpeg/v1/fill/w_1853,h_850,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/11062b_8f6239f8828c4a7e93d3d644bc62b477~mv2.jpeg"
+                alt="Minecraft Jungle" width="100%">
+            <div class="centered" style="font-family: 'Poppins', sans-serif; font-size: 1vw;">
+                <h1><b>&nbsp&nbspAll About Us</b>
+            </div>
+            <div class="centered" style="font-family: 'Poppins', sans-serif; font-size: 1vw;">
+                <br><br><br><br><br><br><br>&nbsp&nbspWe are a modest community that will welcome anyone to our server!
+                Cracked mode is Always on so people who have not bought Minecraft yet can still play on our server!
+            </div>
+        </div>
+        <br><br><br>
+    </center>
+
+
+
+
+
+
+
+    <div class="container tempborder" style=" background-color: rgb(197, 197, 197); align-items: center;">
+
+        <div class="tempborder"
+            style="align-items: center; padding: 0px 0; padding-top: 70px; padding-bottom: -40px; color: black; font-family: 'Poppins', sans-serif; font-size: 3vw;">
+            <b>My Minecraft Server Hosting<br><button class="button-6"><a href="https://discord.gg/RjtZekTcQm"
+                        style="text-decoration: none; font-family: 'Poppins', sans-serif;">Discord</a></button></b>
+        </div>
+        <div class="tempborder"
+            style="text-align: center; color: black; font-family: 'Poppins', sans-serif; padding: 70px; align-self: center; font-size: 1vw;">
+            <b>I also host my own Minecraft Servers!
+                And Yes! You can join too! To join, just join our discord! Its Super simple and our Servers are 24/7 and
+                have both Creative And Survival Servers! Its Really fun to play on this server! You can also join via <a
+                    href="WebsiteChat.html"><u>My Live Chat</u></a>.</b></div>
+    </div>
+
+    <div class="container tempborder clearfix"
+        style="background-color: rgb(197, 197, 197); align-items: center; color: black; font-family: 'Poppins', sans-serif;">
+        <b><span style="font-size: 3vw;">Other Ways to Join</span><br><span style="font-size: 1vw;">
+                If you don't wanna join the discord, and still wanna join the minecraft servers, Please post in the <a
+                    href="WebsiteChat.html"><u>Live Chat</u></a> or contact me on my Email at <a
+                    href="mailto: pranav@verma.net.in"><u>pranav@verma.net.in</u></a>.</span></b><br><br>
+
+                   
+    </div>
+    <div><center>
+        <p class="jetmono">Old World Download Links:</p>
+
+    <button class="button-6"><a href="https://drive.google.com/file/d/1OlSW72kWEZanqcjXZ8EvKuXaDTL67K2J/view?usp=share_link"
+        style="text-decoration: none; font-family: 'Poppins', sans-serif;">Download Server Files</a></center>
+    </div><br>
+
+
+
+
+
+
+
+
+
+
+
+    <div class="tempborder clearfix" style="background-color: rgba(216, 216, 216, 0.952);">
+
+        <img src="https://static.wixstatic.com/media/22e55c_0c02c2133bfb427b87605cfe79c35439~mv2.png/v1/fill/w_600,h_401,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/coding.png"
+            style="width: 30vw; float: right;">
+        <br>
+        <p class="jetmono center" style="font-size: 2.6vw; color: black;">CONTACT ME!</p>
+        <center><a href="mailto: pranav@verma.net.in" class="jetmono blacklink" style="font-size: 2vw;"><i
+                    class="fa-solid fa-envelope"></i> </a>
+
+            <a href="https://github.com/PranavVerma-droid" class="jetmono blacklink" style="font-size: 2vw;"><i
+                    class="fa-brands fa-github"></i> </a>
+            <a href="WebsiteChat.html" class="jetmono blacklink" style="font-size: 2vw;"><i
+                    class="fa-solid fa-message"></i> </a>
+            <a href="https://discord.gg/RjtZekTcQm" class="jetmono blacklink" style="font-size: 2vw;"><i
+                    class="fa-brands fa-discord"></i> </a>
+            <a href="ContactForm.html" class="jetmono blacklink" style="font-size: 2vw;"><i
+                    class="fa-solid fa-align-left"></i>
+            </a>
+            <a href="https://twitter.com/InfinityX_Web" class="jetmono blacklink" style="font-size: 2vw;"><i
+                    class="fa-brands fa-twitter"></i> </a>
+            <a href="https://www.instagram.com/pranav_verma.234/" class="jetmono blacklink" style="font-size: 2.2vw;"><i
+                    class="fa-brands fa-instagram"></i>  </a>
+            <a href="https://stackoverflow.com/users/21380085/pranav-verma" class="jetmono blacklink" style="font-size: 2vw;"><i class="fa-brands fa-stack-overflow"></i> </a>
+            <a href="https://codepen.io/PranavVerma-droid" class="jetmono blacklink" style="font-size: 2vw;"><i class="fa-brands fa-codepen"></i></a>
+
+        </center>
+    </div>
+
+
+    <div> <br><br>
+        <p class="center jetmono" style="font-size: 25px;">INFINITY X</p>
+        <p class="center jetmono" style="font-size: 15px;">pranav@verma.net.in</p> <br> <br> <br>
+        <p class="center jetmono" style="font-size: 12px;">Proudly Created by Pranav Verma. <a
+                href="https://github.com/PranavVerma-droid">https://github.com/PranavVerma-droid</a></p>
+
+
+
+    </div>
+
+
+
+</body>
+
+
+</html>

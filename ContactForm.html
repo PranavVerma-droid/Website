@@ -1,0 +1,68 @@
+<html>
+
+<head>
+    <title>Contact Me Forum</title>
+    <link rel="icon" href="InfinityX.png" type="image/x-icon">
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="index-enc.css">
+    <script type="text/javascript" src="index-enc.js"></script>
+</head>
+
+
+<body>
+    <script>
+        document.addEventListener("contextmenu", (event) => {
+            event.preventDefault();
+        });
+    </script>
+    <div class="container">
+        <h1 class="title drop-in">Contact Form</h1>
+
+        <center><a class="drop-in-2" href="index.html" style="font-family: 'JetBrains Mono', monospace; font-size: 1vw;"><u>Go Back
+                    Home</u></a></center>
+
+        <p style=" font-size: 0.7vw; color: white; font-family: 'JetBrains Mono', monospace; text-align: center;">I will
+            try to respond to you ASAP through your Email!</p>
+        <div class="wrapper animated bounceInLeft drop-in">
+            <div class="contact">
+                <!--<h3 class="contact-us">Contact Us</h3>-->
+                <div class="alert">Your message has been sent! Please Check your Email!</div>
+                <form id="contactForm">
+                    <p class="name-field">
+                        <label>Name <span>*</span></label>
+                        <input type="text" name="name" id="name" required>
+                    </p>
+                    <p class="company-field">
+                        <label>Company</label>
+                        <input type="text" name="company" id="company">
+                    </p>
+                    <p class="email-field">
+                        <label>Email <span>*</span></label>
+                        <input type="email" name="email" id="email" required>
+                    </p>
+                    <p class="phone-field">
+                        <label>Phone</label>
+                        <input type="text" name="phone" id="phone">
+                    </p>
+                    <p class="message-field full">
+                        <label>Message</label>
+                        <textarea name="message" rows="7" id="message"></textarea>
+                    </p>
+                    <p class="required-field">Required field <span>*</span></p>
+                    <p class="submit-button">
+                        <button type="submit">Submit</button>
+                    </p>
+                </form>
+
+            </div>
+
+        </div>
+        <p style="color: white; font-family: 'JetBrains Mono', monospace; text-align: center; font-size: 0.5vw;">This
+            Page has been made by Pranav Verma. https://github.com/PranavVerma-droid</p>
+    </div>
+</body>
+
+</html>
