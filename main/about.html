@@ -112,9 +112,9 @@
   <div v-if="user" class="py-16 px-8 max-w-4xl mx-auto">
     <form @submit.prevent="submitProject" class="border-solid border-2 p-2">
       <h1>Create Project:</h1>
-      <input type="text" v-model="projectName" class="border p-2 mb-2l rounded" placeholder="Project Title" required><br>
-      <textarea cols="22" v-model="projectDescription" class="border p-2 mb-2 mt-3 rounded" placeholder="Project Content" required></textarea><br>
-      <input type="text" v-model="projectImg" class="border p-2 mb-2 rounded" placeholder="Project Image URL" required><br>
+      <input type="text" v-model="projectName" class="border p-2 mb-2l rounded" placeholder="Tool Title" required><br>
+      <textarea cols="22" v-model="projectDescription" class="border p-2 mb-2 mt-3 rounded" placeholder="Tool Description" required></textarea><br>
+      <input type="text" v-model="projectImg" class="border p-2 mb-2 rounded" placeholder="Tool Image URL" required><br>
       <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-full">Submit</button>
     </form>
   </div>
